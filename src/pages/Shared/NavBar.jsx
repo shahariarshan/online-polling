@@ -1,14 +1,47 @@
 import { NavLink } from "react-router-dom";
 import logo from '../../assets/R-removebg-preview (1).png'
+import useAuth from "../../Hooks/useAuth";
 
 
 const NavBar = () => {
+    const { user, logOut } = useAuth();
+
+    const handelLogOut = () => {
+        logOut()
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
     const NavItems =
         <>
             <li className="mr-3"><NavLink to='/'>Home</NavLink></li>
-            <li className="mr-3"><NavLink >Add survey</NavLink></li>
+            <li className="mr-3"><NavLink >Survey</NavLink></li>
+            <li className="mr-3"><NavLink to='/dashboard'>Dashboard</NavLink></li>
             <li className="mr-3"><NavLink >Pro User</NavLink></li>
+            {
+                user ? <>
+                    {/* <span>{user?.displayName}</span> */}
 
+                   
+
+
+                    <details className="dropdown">
+                        <summary className="m-1 btn">User</summary>
+                        <ul className="p-2 shadow menu dropdown-content z-[1] bg-red-500 overflow-hidden  rounded-box w-52">
+                        <li>Name:{user?.displayName}</li>
+                            <li>Email:{user?.email}</li>
+                        </ul>
+                    </details>
+                    <li><NavLink onClick={handelLogOut}>LogOut</NavLink></li>
+                </> :
+                    <>
+                        <li><NavLink to='/login'>Login</NavLink></li>
+                    </>
+            }
+            <li><NavLink to='/signUp'>Register</NavLink></li>
         </>
     return (
         <div>
@@ -28,21 +61,21 @@ const NavBar = () => {
                         <div className="w-20 rounded">
                             <img src={logo} alt="" />
                         </div>
-                        </div>
-                        <div>
-                            <h1 className=" uppercase text-lg font-serif">Polling <span className="text-4xl text-red-600 text-center"> &</span> Survey</h1>
-                        </div>
+                    </div>
+                    <div>
+                        <h1 className=" uppercase text-lg font-serif">Polling <span className="text-4xl text-red-600 text-center"> &</span> Survey</h1>
+                    </div>
 
-                    </div>
-                    <div className="navbar-center hidden lg:flex">
-                        <ul className="menu menu-horizontal px-1">
-                            {NavItems}
-                        </ul>
-                    </div>
-                    
                 </div>
+                <div className="navbar-center hidden lg:flex">
+                    <ul className="menu menu-horizontal px-1">
+                        {NavItems}
+                    </ul>
+                </div>
+
             </div>
-            );
+        </div>
+    );
 };
 
-            export default NavBar;
+export default NavBar;

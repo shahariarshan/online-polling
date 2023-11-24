@@ -65,14 +65,3 @@ const Banner = () => {
 };
 
 export default Banner;
-
-
-
-// https://ibb.co/yF55T9y
-// https://ibb.co/Kzd4LPR
-// https://ibb.co/dgnjLTz
-// https://ibb.co/HhxnSKg
-// https://ibb.co/Trw8wP3
-// https://ibb.co/cJ88Ng5
-// https://ibb.co/VL8QyvP
-// https://ibb.co/dJCMBbv

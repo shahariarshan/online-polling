@@ -1,0 +1,13 @@
+{
+    "survey": {
+      "title": "Example Survey Title",
+      "description": "This survey aims to gather information about...",
+      "options": ["Yes", "No"],
+      "like": 0,
+      "dislike": 0,
+      "category": "Technology",
+      "timestamp": "2023-11-24T12:00:00Z"
+     
+    }
+  }
+  
