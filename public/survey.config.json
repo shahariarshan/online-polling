@@ -1,13 +1,56 @@
-{
-    "survey": {
-      "title": "Example Survey Title",
-      "description": "This survey aims to gather information about...",
-      "options": ["Yes", "No"],
-      "like": 0,
-      "dislike": 0,
-      "category": "Technology",
-      "timestamp": "2023-11-24T12:00:00Z"
-     
-    }
+[
+  {
+    "title": "Product Satisfaction",
+    "description": "Share your satisfaction level with our products.",
+    "options": ["Yes", "No"],
+    "like": 0,
+    "dislike": 0,
+    "category": "Consumer Feedback",
+    "timestamp": "2023-11-20T12:00:00Z"
+  },
+  {
+    "title": "Workplace Environment",
+    "description": "Provide feedback on your workplace environment and culture.",
+    "options": ["Yes", "No"],
+    "like": 0,
+    "dislike": 0,
+    "category": "Employee Engagement",
+    "timestamp": "2023-11-20T12:15:00Z"
+  },
+  {
+    "title": "Education Experience",
+    "description": "Share your experience with online education and courses.",
+    "options": ["Yes", "No"],
+    "like": 0,
+    "dislike": 0,
+    "category": "Education and Training",
+    "timestamp": "2023-11-20T12:30:00Z"
+  },
+  {
+    "title": "Health Habits Survey",
+    "description": "Gather information on health habits and lifestyle choices.",
+    "options": ["Yes", "No"],
+    "like": 0,
+    "dislike": 0,
+    "category": "Health and Wellness",
+    "timestamp": "2023-11-20T12:45:00Z"
+  },
+  {
+    "title": "Political Preferences Poll",
+    "description": "Express your political preferences in this survey.",
+    "options": ["Yes", "No"],
+    "like": 0,
+    "dislike": 0,
+    "category": "Politics and Public Opinion",
+    "timestamp": "2023-11-20T13:00:00Z"
+  },
+  {
+    "title": "Tech Trends Survey",
+    "description": "Share your interest and opinions on the latest technology trends.",
+    "options": ["Yes", "No"],
+    "like": 0,
+    "dislike": 0,
+    "category": "Technology and Innovation",
+    "timestamp": "2023-11-20T13:15:00Z"
   }
-  
+]

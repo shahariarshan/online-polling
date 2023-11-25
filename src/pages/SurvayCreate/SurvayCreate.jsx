@@ -54,13 +54,24 @@ const SurveyCreate = () => {
                                 <option value="Social and Demographic">Social and Demographic</option>
                             </select>
                         </div>
-                    </div>
-                     <label {...register("feedback", { required: true })} className="label">
-                        <span className="label-text">Feedback*:</span>
-                        </label>
+                        <div className="form-control w-full my-6">
+                            <label className="label">
+                                <span className="label-text">Expire Date*:</span>
+                            </label>
+                            <input type="date"
+                                {...register("expireDate", { required: true })}
+                                placeholder="Type Survey Title here"
+                                className="input input-bordered w-full " />
+                        </div>
 
-                    
-                    <div    className=" flex mx-auto gap-10 px-10  my-6">
+
+                    </div>
+                    <label  className="label">
+                        <span className="label-text">Feedback*:</span>
+                    </label>
+
+
+                    <label {...register("feedback", { required: true })} className=" flex mx-auto gap-10 px-10  my-6">
                         < >
                             <label >Yes</label>
                             <input className="ml-5" type="radio" id="yesOption" name="response" value="Yes"></input>
@@ -71,13 +82,13 @@ const SurveyCreate = () => {
                             <input className="ml-5" type="radio" id="noOption" name="response" value="No"></input>
                         </>
 
-                    </div> 
-               
+                    </label>
 
 
 
 
-                    
+
+
 
                     <label className="label">
                         <span className="label-text">Description*:</span>

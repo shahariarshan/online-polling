@@ -22,25 +22,14 @@ const NavBar = () => {
             <li className="mr-3"><NavLink to='/dashboard'>Dashboard</NavLink></li>
             <li className="mr-3"><NavLink >Pro User</NavLink></li>
             {
-                user ? <>
-                    {/* <span>{user?.displayName}</span> */}
-
-                   
-
-
-                    <details className="dropdown">
-                        <summary className="m-1 btn">User</summary>
-                        <ul className="p-2 shadow menu dropdown-content z-[1] bg-red-500 overflow-hidden  rounded-box w-52">
-                        <li>Name:{user?.displayName}</li>
-                            <li>Email:{user?.email}</li>
-                        </ul>
-                    </details>
-                    <li><NavLink onClick={handelLogOut}>LogOut</NavLink></li>
-                </> :
-                    <>
-                        <li><NavLink to='/login'>Login</NavLink></li>
-                    </>
-            }
+            user ? <>
+                <span>{user?.displayName}</span>
+                <li><NavLink onClick={handelLogOut}>LogOut</NavLink></li>
+            </> :
+                <>
+                    <li><NavLink to='/login'>Login</NavLink></li>
+                </>
+        }
             <li><NavLink to='/signUp'>Register</NavLink></li>
         </>
     return (
