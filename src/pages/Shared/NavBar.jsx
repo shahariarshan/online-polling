@@ -18,18 +18,31 @@ const NavBar = () => {
     const NavItems =
         <>
             <li className="mr-3"><NavLink to='/'>Home</NavLink></li>
-            <li className="mr-3"><NavLink >Survey</NavLink></li>
+            <li className="mr-3"><NavLink to='/survey'>Survey</NavLink></li>
             <li className="mr-3"><NavLink to='/dashboard'>Dashboard</NavLink></li>
             <li className="mr-3"><NavLink >Pro User</NavLink></li>
             {
-            user ? <>
-                <span>{user?.displayName}</span>
-                <li><NavLink onClick={handelLogOut}>LogOut</NavLink></li>
-            </> :
-                <>
-                    <li><NavLink to='/login'>Login</NavLink></li>
-                </>
-        }
+                user ? <>
+                    {/* <span></span> */}
+                    <details className="dropdown">
+                        <summary className="m-1 btn">user</summary>
+                        <ul className="p-2 shadow menu dropdown-content bg-emerald-400 overflow-hidden rounded-box w-52">
+
+
+                            <img className="w-24  rounded-full  " src={user?.photo} />
+
+
+                            <li>Name: {user?.displayName}</li>
+                            <li>Email: {user?.email}</li>
+
+                        </ul>
+                    </details>
+                    <li><NavLink onClick={handelLogOut}>LogOut</NavLink></li>
+                </> :
+                    <>
+                        <li><NavLink to='/login'>Login</NavLink></li>
+                    </>
+            }
             <li><NavLink to='/signUp'>Register</NavLink></li>
         </>
     return (

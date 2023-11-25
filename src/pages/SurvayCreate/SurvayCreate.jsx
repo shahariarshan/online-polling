@@ -1,33 +1,81 @@
-// import moment from "moment/moment";
-// import { useState } from "react";
+
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { RiSurveyFill } from "react-icons/ri";
+import Swal from "sweetalert2";
+import useAxiosSecure from '../../Hooks/useAxiosSecure'
+import useAuth from "../../Hooks/useAuth";
 
 const SurveyCreate = () => {
-    const { register, handleSubmit } = useForm()
-    const onSubmit = (data) => {
-        console.log(data)
+    const axiosSecure =useAxiosSecure()
+    const {user} =useAuth()
+    const [yesVoted]=useState(0)
+    const [noVoted]=useState(0)
+    const [liked]=useState(0)
+    const [dislike]=useState(0)
+    const { register, handleSubmit,
+        reset,
+    formState :{errors},
+    } = useForm()
+    const onSubmit = async(data) => {
+        const formData={
+            ...data,
+            yesVoted,
+            noVoted,
+            liked,
+            dislike
+        }
+        console.log(formData)
+
+        const surveyItem = {
+            email:user.email,
+            title:data.title,
+            category:data.category,
+            date:data.expireDate,
+            options:data.options,
+            description:data.description,
+            yesVoted:formData.yesVoted,
+            liked:formData.liked,
+            dislike:formData.dislike
+
+
+            
+           
+        }
+        const menuRes = await axiosSecure.post('/survey', surveyItem);
+        console.log(menuRes.data)
+        if(menuRes.data.insertedId){
+            // show success popup
+            reset();
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: `${data.name} is added to the menu.`,
+                showConfirmButton: false,
+                timer: 1500
+              });
+        }
     }
-    // const [manufacturingDate, setManufacturingDate] = useState('');
-    // const [shelfLife, setShelfLife] = useState('');
-    // const [expiryDate, setExpiryDate] = useState('');
-    // const [isExpired, setIsExpired] = useState(false);
-
-    // const handleCalculate = () => {
-    //     if (manufacturingDate && shelfLife) {
-    //         const expiryDate = moment(manufacturingDate).add(shelfLife, 'days').format('YYYY-MM-DD');
-    //         setExpiryDate(expiryDate);
-
-    //         const today = moment().format('2023-12-05');
-    //         setIsExpired(moment(expiryDate).isBefore(today));
-    //     }
-    // };
+    
+   
     return (
         <div>
             <h2 className="text-center mt-5 text-5xl font-serif text-amber-300">Create A Survey!</h2>
             <div className="mt-7">
                 <form onSubmit={handleSubmit(onSubmit)}>
 
+                    <div className="form-control w-full my-6">
+                        <label className="label">
+                            <span className="label-text">Email*:</span>
+                        </label>
+                        <input type="text"
+                            {...register("email", { required: true })}
+                            value={user.email}
+                            readOnly
+                            placeholder="Type Survey Title here"
+                            className="input input-bordered  " />
+
+                    </div>
                     <div className="form-control w-full my-6">
                         <label className="label">
                             <span className="label-text">Survey Title*:</span>
@@ -66,23 +114,22 @@ const SurveyCreate = () => {
 
 
                     </div>
-                    <label  className="label">
-                        <span className="label-text">Feedback*:</span>
-                    </label>
 
 
-                    <label {...register("feedback", { required: true })} className=" flex mx-auto gap-10 px-10  my-6">
-                        < >
-                            <label >Yes</label>
-                            <input className="ml-5" type="radio" id="yesOption" name="response" value="Yes"></input>
-                        </>
 
-                        <>
-                            <label >No</label>
-                            <input className="ml-5" type="radio" id="noOption" name="response" value="No"></input>
-                        </>
+                   
 
-                    </label>
+                    <div className="form-control w-full my-6">
+                        <label className="label">
+                            <span className="label-text">Options*:</span>
+                        </label>
+                        <select {...register("options", { required: true })} className="select select-primary w-full ">
+                           
+                            <option value="yes">yes</option>
+                            <option value="no">no</option>
+                            
+                        </select>
+                    </div>
 
 
 
@@ -107,3 +154,7 @@ const SurveyCreate = () => {
 };
 
 export default SurveyCreate;
+
+
+
+

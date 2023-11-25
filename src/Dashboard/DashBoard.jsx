@@ -7,22 +7,25 @@ import { FcAbout } from "react-icons/fc";
 import { FaHome, FaMoneyBill, FaUsers } from "react-icons/fa";
 import { MdMovieCreation } from "react-icons/md";
 import useAdmin from "../Hooks/useAdmin";
-// import useSurveyor from "../Hooks/useSurveyor";
+import useSurveyor from "../Hooks/useSurveyor";
+
 
 
 
 
 const DashBoard = () => {
     const [isAdmin] = useAdmin();
-    // const [isSurveyor] = useSurveyor()
+    const [isSurveyor] = useSurveyor()
+    
+
 
     return (
         <div className="flex min-h-screen lg:min-h-screen bg-emerald-500">
             <div className="w-64 min-h-screen bg-slate-400">
                 <ul className="menu text-xl p-4">
-                   
 
-                    {isAdmin ?
+
+                   {isAdmin ?
                         <>
                             <li>
                                 <NavLink to="/dashboard/adminHome">
@@ -38,34 +41,11 @@ const DashBoard = () => {
                                     <FaMoneyBill></FaMoneyBill>Payment</NavLink>
                             </li>
                         </>
-                        :
-                       
-                            <>
-                            
-                            <li>
-                                    <NavLink to='/dashboard/surveyorHome'>
-                                        <MdMovieCreation></MdMovieCreation>Surveyor Home</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to='/dashboard/surveyCreate'>
-                                        <MdMovieCreation></MdMovieCreation>Survey Creation</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to='/dashboard/surveyUpdate'>
-                                        <MdMovieCreation></MdMovieCreation>Survey Update</NavLink>
-                                </li>
-                            </>
-                            
-                        
-                       
-                    }
-                    
-                    {/* {isSurveyor &&
+                       :
+
                         <>
-                        <li>
-                                <NavLink to='/dashboard/surveyorHome'>
-                                    <MdMovieCreation></MdMovieCreation>Surveyor Home</NavLink>
-                            </li>
+
+
                             <li>
                                 <NavLink to='/dashboard/surveyCreate'>
                                     <MdMovieCreation></MdMovieCreation>Survey Creation</NavLink>
@@ -74,9 +54,18 @@ const DashBoard = () => {
                                 <NavLink to='/dashboard/surveyUpdate'>
                                     <MdMovieCreation></MdMovieCreation>Survey Update</NavLink>
                             </li>
+                            <li>
+                                <NavLink to='/dashboard/response'>
+                                    <MdMovieCreation></MdMovieCreation>Survey responses</NavLink>
+                            </li>
                         </>
                         
-                    } */}
+
+
+
+
+                    } 
+
 
 
                     {/* common for everyone  */}

@@ -31,12 +31,13 @@ const SignUp = () => {
         .then(result => {
             const loggedUser = result.user
             console.log(loggedUser);
-            profileUpdate(data.name, data.photoURL)
+            profileUpdate(data.name, data.photo)
             .then(() => {
                 // console.log('update success');
                 const userInfo = {
                     name: data.name,
-                    email: data.email
+                    email: data.email,
+                    photo: data.photo,
                     
                 }
                 axiosPublic.post('/users', userInfo)
@@ -81,6 +82,15 @@ const SignUp = () => {
                {errors.name && <span className="text-red-500">Name is required</span>}
 
            </div>
+
+           <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Photo Url</span>
+                            </label>
+                            <input type="url" {...register("photoUrl", { required: true })} placeholder="name" className="input input-bordered" />
+                            {errors.photoUrl && <span className="text-red-500">Photo Url is required</span>}
+
+                        </div>
 
           
            <div className="form-control">
