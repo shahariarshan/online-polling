@@ -51,8 +51,8 @@ const DashBoard = () => {
                                     <MdMovieCreation></MdMovieCreation>Survey Creation</NavLink>
                             </li>
                             <li>
-                                <NavLink to='/dashboard/surveyUpdate'>
-                                    <MdMovieCreation></MdMovieCreation>Survey Update</NavLink>
+                                <NavLink to='/dashboard/manageSurvey'>
+                                    <MdMovieCreation></MdMovieCreation>Manage Survey </NavLink>
                             </li>
                             <li>
                                 <NavLink to='/dashboard/response'>

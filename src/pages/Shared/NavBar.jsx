@@ -24,7 +24,7 @@ const NavBar = () => {
             {
                 user ? <>
                     {/* <span></span> */}
-                    <details className="dropdown">
+                    <details className="dropdown items-end">
                         <summary className="m-1 btn">user</summary>
                         <ul className="p-2 shadow menu dropdown-content bg-emerald-400 overflow-hidden rounded-box w-52">
 

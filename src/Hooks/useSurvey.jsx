@@ -8,7 +8,7 @@ const useSurvey = () => {
         queryKey:['survey'],
         queryFn: async()=>{
             const res =await axiosPublic.get('/survey')
-            console.log(res.data);
+            // console.log(res.data);
             return res.data
            
         }

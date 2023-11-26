@@ -5,27 +5,37 @@ import { RiSurveyFill } from "react-icons/ri";
 import Swal from "sweetalert2";
 import useAxiosSecure from '../../Hooks/useAxiosSecure'
 import useAuth from "../../Hooks/useAuth";
+import moment from "moment/moment";
+
 
 const SurveyCreate = () => {
+    
     const axiosSecure =useAxiosSecure()
     const {user} =useAuth()
     const [yesVoted]=useState(0)
     const [noVoted]=useState(0)
     const [liked]=useState(0)
     const [dislike]=useState(0)
+    const [item, setItem] = useState('');
     const { register, handleSubmit,
         reset,
     formState :{errors},
     } = useForm()
     const onSubmit = async(data) => {
+        
         const formData={
+            
+            timestamp: moment().format(),
             ...data,
             yesVoted,
             noVoted,
             liked,
-            dislike
+            dislike,
+            status:'Unpublished',
+            options:['Yes',"No"]
         }
         console.log(formData)
+        
 
         const surveyItem = {
             email:user.email,
@@ -36,13 +46,16 @@ const SurveyCreate = () => {
             description:data.description,
             yesVoted:formData.yesVoted,
             liked:formData.liked,
-            dislike:formData.dislike
+            dislike:formData.dislike,
+            timestamp:formData.timestamp
+           
+
 
 
             
            
         }
-        const menuRes = await axiosSecure.post('/survey', surveyItem);
+        const menuRes = await axiosSecure.post('/survey', surveyItem );
         console.log(menuRes.data)
         if(menuRes.data.insertedId){
             // show success popup
@@ -102,7 +115,7 @@ const SurveyCreate = () => {
                                 <option value="Social and Demographic">Social and Demographic</option>
                             </select>
                         </div>
-                        <div className="form-control w-full my-6">
+                        {/* <div className="form-control w-full my-6">
                             <label className="label">
                                 <span className="label-text">Expire Date*:</span>
                             </label>
@@ -110,7 +123,7 @@ const SurveyCreate = () => {
                                 {...register("expireDate", { required: true })}
                                 placeholder="Type Survey Title here"
                                 className="input input-bordered w-full " />
-                        </div>
+                        </div> */}
 
 
                     </div>
