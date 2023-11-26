@@ -34,10 +34,11 @@ const ManageSurvay = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
+                    refetch();
 
                 }
             }
-            refetch();
+            
         });
     }
     return (
@@ -55,7 +56,6 @@ const ManageSurvay = () => {
                             <th></th>
                             <th>Title</th>
                             <th>Category</th>
-
                             <th>Action</th>
                             <th>Action</th>
                         </tr>
@@ -67,6 +67,7 @@ const ManageSurvay = () => {
                                 <th>{index + 1}</th>
                                 <td>{item.title}</td>
                                 <td>{item.category}</td>
+                                
                                 <td>
                                    <Link>
                                    <button onClick={() => handelUpdateItem(item)} className="btn btn-warning btn-md"><FaEdit className=" text-red-700 text-xl"></FaEdit></button>

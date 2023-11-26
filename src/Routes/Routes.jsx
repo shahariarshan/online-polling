@@ -13,6 +13,7 @@ import PrivateRoute from '../Routes/PrivateRoute'
 import Survey from "../Components/Survey/Survey";
 import SurveyDetails from "../pages/SurbeyDetails";
 import ManageSurvay from "../Dashboard/ManageSurvey/ManageSurvay";
+import SurveyResponse from "../pages/SurveyResponse/SurveyResponse";
 // import SurveyUpdate from "../pages/SurvayCreate/SurvayUpdate/SurveyUpdate";
 
 
@@ -60,6 +61,10 @@ export const router = createBrowserRouter([
       {
         path: 'manageSurvey',
         element: <ManageSurvay></ManageSurvay>
+      },
+      {
+        path: 'response',
+        element: <SurveyResponse></SurveyResponse>
       },
       // {
       //   path: 'update/:id',

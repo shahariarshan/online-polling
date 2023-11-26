@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import useAuth from "../../Hooks/useAuth";
+// import useAuth from "../../Hooks/useAuth";
 import useSurvey from "../../Hooks/useSurvey";
 import { AiFillLike } from "react-icons/ai";
 import { AiFillDislike } from "react-icons/ai";
@@ -9,17 +9,17 @@ import { useEffect, useState } from "react";
 
 
 const Survey = () => {
-    const { user } = useAuth()
-    console.log(user);
+    // const { user } = useAuth()
+    // console.log(user);
     const [survey] = useSurvey()
     const axiosPublic = useAxiosPublic()
+    const [liked, setLiked] = useState(false);
     const [likeCount, setLikeCount] = useState(0);
-    // const allSurvey = survey.filter(data => data.category === 'category')
-    // console.log(allSurvey);
+  
     const fetchLikeCount = async () => {
         try {
-          const response = await axiosPublic.get('/api/like/count'); // Replace with your backend endpoint to fetch the count
-          setLikeCount(response.data.likeCount); // Assuming the API returns like count in the response
+          const response = await axiosPublic.get('/api/like/count'); 
+          setLikeCount(response.data.likeCount); 
         } catch (error) {
           console.error('Error fetching like count:', error);
         }
@@ -32,8 +32,20 @@ const Survey = () => {
 
     const handleLike = async () => {
        
-          const response = await axiosPublic.post('/api/like');
-          console.log('Like incremented:', response.data);
+        //   const response = await axiosPublic.post('/api/like');
+        //   console.log('Like incremented:', response.data);
+        if (!liked) {
+            try {
+              // If the user hasn't liked already, send a like request to the backend
+              await axiosPublic.post('/api/like');
+              setLikeCount((prevCount) => prevCount + 1);
+              setLiked(true);
+            } catch (error) {
+              console.error('Error liking:', error);
+            }
+          } else {
+            console.log('You have already liked this.');
+          }
       };
     
       const handleDislike = async () => {

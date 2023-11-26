@@ -16,7 +16,6 @@ const SurveyCreate = () => {
     const [noVoted]=useState(0)
     const [liked]=useState(0)
     const [dislike]=useState(0)
-    const [item, setItem] = useState('');
     const { register, handleSubmit,
         reset,
     formState :{errors},
@@ -63,7 +62,7 @@ const SurveyCreate = () => {
             Swal.fire({
                 position: "top-end",
                 icon: "success",
-                title: `${data.name} is added to the menu.`,
+                title: `Survey added .`,
                 showConfirmButton: false,
                 timer: 1500
               });
