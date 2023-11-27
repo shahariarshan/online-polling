@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import useAuth from '../../Hooks/useAuth';
+import backgroundImage from '../../assets/13295527_5153829.jpg'
 
 import GooglePopUp from '../Shared/GooglepopUp';
 import Swal from 'sweetalert2';
@@ -55,9 +56,9 @@ const Login = () => {
             setDisabled(true)
         }
     }
-
+   
     return (
-        <div className="hero min-h-screen bg-slate-600">
+        <div className="hero min-h-screen bg-slate-600" style={{backgroundImage: `url(${backgroundImage})`}}>
             
             <Helmet>
                 <title>
@@ -65,11 +66,8 @@ const Login = () => {
                 </title>
             </Helmet>
 
-            <div className="hero-content flex-col lg:flex-row-reverse ">
-                {/* <div className="text-center lg:w-1/2 lg:text-left">
-                    <h1 className="text-5xl font-bold">Login now!</h1>
-                    <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                </div> */}
+            <div className="hero-content flex-shrink-0 w-full max-w-sm shadow-2xl ">
+               
                 <div className="card bg-gray-200  shadow-2xl ">
                     <form onSubmit={handelLoginForm} className="card-body">
                         <div className="form-control">
