@@ -19,7 +19,8 @@ import './style.css';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 const Banner = () => {
     return (
-        <div >
+        <div>
+          <div >
             <Swiper
             
             
@@ -60,6 +61,9 @@ const Banner = () => {
           <img src={pic7} />
         </SwiperSlide>
       </Swiper>
+     
+        </div>
+        <button className="btn btn-primary mx-auto flex justify-center">Explore More</button>
         </div>
     );
 };

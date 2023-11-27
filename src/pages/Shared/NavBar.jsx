@@ -20,7 +20,7 @@ const NavBar = () => {
             <li className="mr-3"><NavLink to='/'>Home</NavLink></li>
             <li className="mr-3"><NavLink to='/survey'>Survey</NavLink></li>
             <li className="mr-3"><NavLink to='/dashboard'>Dashboard</NavLink></li>
-            <li className="mr-3"><NavLink >Pro User</NavLink></li>
+            <li className="mr-3"><NavLink to='/payment' >Pro User</NavLink></li>
             {
                 user ? <>
                     {/* <span></span> */}

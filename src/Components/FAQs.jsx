@@ -8,7 +8,7 @@ const FAQs = () => {
                 <h2 className="font-semibold font-serif text-5xl">Frequently Asked Questions</h2>
             </div>
             <div className="lg:flex gap-5 justify-evenly ">
-                <div className="w-[50%]">
+                <div className="lg:w-[50%]">
                     <div className="collapse collapse-arrow mt-5 bg-base-200">
                         <input type="radio" name="my-accordion-2" checked="checked" />
                         <div className="collapse-title text-xl font-medium">
@@ -49,7 +49,7 @@ const FAQs = () => {
                     </div>
                 </div>
 
-                <div className="w-[50%]">
+                <div className="lg:w-[50%]">
                     <div className="collapse collapse-arrow mt-5 bg-base-200">
                         <input type="radio" name="my-accordion-2" checked="checked" />
                         <div className="collapse-title text-xl font-medium">

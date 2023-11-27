@@ -11,9 +11,11 @@ import AllUsers from "../Dashboard/AllUsers/AllUsers";
 import PrivateRoute from '../Routes/PrivateRoute'
 
 import Survey from "../Components/Survey/Survey";
-import SurveyDetails from "../pages/SurbeyDetails";
+
 import ManageSurvay from "../Dashboard/ManageSurvey/ManageSurvay";
 import SurveyResponse from "../pages/SurveyResponse/SurveyResponse";
+import DetailsSurvey from "../pages/DetailsSurvey/DetailsSurvey";
+import Payment from "../Dashboard/Payment/Payment";
 // import SurveyUpdate from "../pages/SurvayCreate/SurvayUpdate/SurveyUpdate";
 
 
@@ -32,9 +34,15 @@ export const router = createBrowserRouter([
         element: <Survey></Survey>
       },
       {
-        path: 'surveyDetails/id',
-        element: <SurveyDetails></SurveyDetails>
+        path: '/payment',
+        element:<Payment></Payment>
       },
+      {
+        path: 'surveyDetails/:id',
+        element: <DetailsSurvey></DetailsSurvey>,
+        loader:({params})=>fetch(`http://localhost:5000/survey/${params.id}`)
+      },
+     
 
     ]
   },
@@ -62,6 +70,7 @@ export const router = createBrowserRouter([
         path: 'manageSurvey',
         element: <ManageSurvay></ManageSurvay>
       },
+     
       {
         path: 'response',
         element: <SurveyResponse></SurveyResponse>
