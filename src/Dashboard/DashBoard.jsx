@@ -4,18 +4,21 @@ import Footer from "../pages/Shared/Footer";
 import { MdOutlineMapsHomeWork } from "react-icons/md";
 import { FcCellPhone } from "react-icons/fc";
 import { FcAbout } from "react-icons/fc";
-import { FaHome, FaMoneyBill, FaUsers } from "react-icons/fa";
+import {  FaMoneyBill, FaUsers } from "react-icons/fa";
 import { MdMovieCreation } from "react-icons/md";
 import useAdmin from "../Hooks/useAdmin";
-import useSurveyor from "../Hooks/useSurveyor";
+// import useSurveyor from "../Hooks/useSurveyor";
+import { FaUserEdit } from "react-icons/fa";
+import { PiSquareSplitHorizontalFill } from "react-icons/pi";
 
 
+import { FaPollH } from "react-icons/fa";
 
 
 
 const DashBoard = () => {
     const [isAdmin] = useAdmin();
-    const [isSurveyor] = useSurveyor()
+    // const [isSurveyor] = useSurveyor()
     
 
 
@@ -28,22 +31,28 @@ const DashBoard = () => {
                    {isAdmin ?
                         <>
                             <li>
-                                <NavLink to="/dashboard/adminHome">
+                                <NavLink to="/dashboard/adminProfile">
 
-                                    <FaHome></FaHome>Admin Home</NavLink>
+                                    <FaUserEdit></FaUserEdit>Admin Profile</NavLink>
                             </li>
                             <li>
                                 <NavLink to="/dashboard/allUsers">
                                     <FaUsers></FaUsers>Manage Users</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/payment">
-                                    <FaMoneyBill></FaMoneyBill>Payment</NavLink>
+                                <NavLink to="/dashboard/priceHistory">
+                                    <FaMoneyBill></FaMoneyBill>Price History</NavLink>
                             </li>
+                            
                         </>
                        :
 
                         <>
+                         <li>
+                                <NavLink to="/dashboard/adminProfile">
+
+                                    <FaUserEdit></FaUserEdit> User Profile</NavLink>
+                            </li>
 
 
                             <li>
@@ -52,11 +61,12 @@ const DashBoard = () => {
                             </li>
                             <li>
                                 <NavLink to='/dashboard/manageSurvey'>
-                                    <MdMovieCreation></MdMovieCreation>Manage Survey </NavLink>
+                                    <FaPollH></FaPollH>Manage Survey </NavLink>
                             </li>
+                           
                             <li>
                                 <NavLink to='/dashboard/response'>
-                                    <MdMovieCreation></MdMovieCreation>Survey responses</NavLink>
+                                    <PiSquareSplitHorizontalFill></PiSquareSplitHorizontalFill>Survey responses</NavLink>
                             </li>
                         </>
                         

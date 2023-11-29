@@ -67,8 +67,9 @@ const Login = () => {
             </Helmet>
 
             <div className="hero-content flex-shrink-0 w-full max-w-sm shadow-2xl ">
-               
+           
                 <div className="card bg-gray-200  shadow-2xl ">
+                <h2 className="text-center text-4xl font-mono text-emerald-600">LogIn Here!</h2>
                     <form onSubmit={handelLoginForm} className="card-body">
                         <div className="form-control">
                             <label className="label">

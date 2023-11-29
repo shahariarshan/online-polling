@@ -16,6 +16,8 @@ import ManageSurvay from "../Dashboard/ManageSurvey/ManageSurvay";
 import SurveyResponse from "../pages/SurveyResponse/SurveyResponse";
 import DetailsSurvey from "../pages/DetailsSurvey/DetailsSurvey";
 import Payment from "../Dashboard/Payment/Payment";
+import PriceHistory from "../pages/PriceHistory/PriceHistory";
+import UserProfile from "../Dashboard/UserProfile/UserProfile";
 // import SurveyUpdate from "../pages/SurvayCreate/SurvayUpdate/SurveyUpdate";
 
 
@@ -37,6 +39,7 @@ export const router = createBrowserRouter([
         path: '/payment',
         element:<Payment></Payment>
       },
+      
       {
         path: 'surveyDetails/:id',
         element: <DetailsSurvey></DetailsSurvey>,
@@ -59,6 +62,10 @@ export const router = createBrowserRouter([
     element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
     children: [
       {
+        path:'adminProfile',
+        element:<UserProfile></UserProfile>
+      },
+      {
         path: 'surveyCreate',
         element: <SurveyCreate></SurveyCreate>
       },
@@ -74,6 +81,10 @@ export const router = createBrowserRouter([
       {
         path: 'response',
         element: <SurveyResponse></SurveyResponse>
+      },
+      {
+        path: 'priceHistory',
+        element:<PriceHistory></PriceHistory>
       },
       // {
       //   path: 'update/:id',

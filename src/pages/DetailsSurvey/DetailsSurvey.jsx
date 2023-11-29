@@ -18,11 +18,11 @@ const DetailsSurvey = () => {
   const axiosPublic = useAxiosPublic()
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
-  // const [disLiked, setDisLiked] = useState(false);
-  // const [disLikeCount, setDisLikeCount] = useState(0);
+  const [disLiked, setDisLiked] = useState(false);
+  const [disLikeCount, setDisLikeCount] = useState(0);
 
   const surveyData = useLoaderData()
-  // console.log(surveyData);
+  console.log(surveyData);
   const fetchLikeCount = async () => {
     try {
       const response = await axiosPublic.get('/api/like/count');
@@ -39,9 +39,9 @@ const DetailsSurvey = () => {
   const handleLike = async () => {
     if (!liked) {
       try {
-        // If the user hasn't liked already, send a like request to the backend
+       
         await axiosPublic.post('/api/like');
-        // Increment the like count displayed on the UI
+        
         setLikeCount((prevCount) => prevCount + 1);
         setLiked(true);
       } catch (error) {
@@ -57,37 +57,37 @@ const DetailsSurvey = () => {
 
   // disLike   
 
-  // const fetchDisLikeCount = async () => {
-  //   try {
-  //     const response = await axiosPublic.get('/api/disLike/count');
-  //     setDisLikeCount(response.data.disLikeCount);
-  //   } catch (error) {
-  //     console.error('Error fetching dislike count:', error);
-  //   }
-  // };
+  const fetchDisLikeCount = async () => {
+    try {
+      const response = await axiosPublic.get('/api/disLike/count');
+      setDisLikeCount(response.data.disLikeCount);
+    } catch (error) {
+      console.error('Error fetching dislike count:', error);
+    }
+  };
 
-  // useEffect(() => {
-  //   fetchDisLikeCount();
-  // }, []);
+  useEffect(() => {
+    fetchDisLikeCount();
+  }, []);
 
 
    
 
 
   const handleDislike = async () => {
-  //   if (!disLiked) {
-  //     try {
-  //       // If the user hasn't liked already, send a like request to the backend
-  //       await axiosPublic.post('/api/like');
-  //       // Increment the like count displayed on the UI
-  //       setDisLikeCount((prevCount) => prevCount + 1);
-  //       setDisLiked(true);
-  //     } catch (error) {
-  //       console.error('Error liking:', error);
-  //     }
-  //   } else {
-  //     console.log('You have already Disliked this.');
-  //   }
+    if (!disLiked) {
+      try {
+       
+        await axiosPublic.post('/api/like');
+        
+        setDisLikeCount((prevCount) => prevCount + 1);
+        setDisLiked(true);
+      } catch (error) {
+        console.error('Error liking:', error);
+      }
+    } else {
+      console.log('You have already Disliked this.');
+    }
   };
 
 

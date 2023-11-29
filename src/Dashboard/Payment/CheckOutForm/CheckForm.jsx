@@ -20,12 +20,12 @@ const CheckOutForm = () => {
   const elements = useElements()
   const axiosSecure = useAxiosSecure()
   const navigate =useNavigate()
-  const [survey,refetch] = useSurvey()
+  const [survey] = useSurvey()
   const { user } = useAuth()
   
  const totalPrice =1000;
   useEffect(() => {
-    if(totalPrice){
+    if(totalPrice > 0){
       axiosSecure.post('/create-payment-intent', { price: totalPrice  })
       .then(res => {
         console.log(res.data.clientSecret);
@@ -82,17 +82,16 @@ const CheckOutForm = () => {
           date: new Date(), //utc date convert
           transactionId: paymentIntent.id,
           cartIds: survey.map(item => item._id),
-          menuItemIds: survey.map(item => item.cartId),
           status: 'pending'
 
         }
         const res = await axiosSecure.post('/payments', payment)
         console.log('payment saved', res.data);
-        refetch()
+      
         if(res.data?.paymentResult.insertedId){
           toast(`Hello  ${user?.displayName}   Sir! Your Payment is SuccessFul,You Are Now Pro User`)
         }
-        navigate('/dashboard/paymentHistory')
+        navigate('/dashboard/priceHistory')
       }
     }
 
