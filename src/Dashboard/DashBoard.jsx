@@ -2,8 +2,8 @@ import { NavLink, Outlet } from "react-router-dom";
 import NavBar from "../pages/Shared/NavBar";
 import Footer from "../pages/Shared/Footer";
 import { MdOutlineMapsHomeWork } from "react-icons/md";
-import { FcCellPhone } from "react-icons/fc";
-import { FcAbout } from "react-icons/fc";
+
+
 import {  FaMoneyBill, FaUsers } from "react-icons/fa";
 import { MdMovieCreation } from "react-icons/md";
 import useAdmin from "../Hooks/useAdmin";
@@ -82,8 +82,8 @@ const DashBoard = () => {
 
                     <div className="divider"></div>
                     <li className="text-2xl   "><NavLink to='/'><MdOutlineMapsHomeWork></MdOutlineMapsHomeWork> Home</NavLink></li>
-                    <li className="text-2xl   "><NavLink to='/contact'><FcCellPhone></FcCellPhone> Contact</NavLink></li>
-                    <li className="text-2xl   "><NavLink to='/aboutUs'><FcAbout></FcAbout> About us</NavLink></li>
+                    
+                    
                 </ul>
             </div>
             <div className="flex-1 ml-5">

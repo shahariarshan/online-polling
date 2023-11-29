@@ -3,7 +3,8 @@ import { Navigate, useLocation } from "react-router-dom";
 
 import { ClimbingBoxLoader } from "react-spinners";
 import useAuth from "../Hooks/useAuth";
-import useAdmin from "../hooks/useAdmin";
+import useAdmin from "../Hooks/useAdmin";
+
 
 
 // eslint-disable-next-line react/prop-types

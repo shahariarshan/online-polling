@@ -5,7 +5,7 @@ import pic3 from '../assets/hand-puts-pink-envelope-into-vote-box.jpg'
 import pic4 from '../assets/high-angle-person-checking-box-close-up.jpg'
 import pic5 from '../assets/high-angle-uncompleted-checking-boxes.jpg'
 import pic6 from '../assets/man-holding-ballot-pointing-camera.jpg'
-import pic7 from '../assets/man-holding-ballot-pointing-camera.jpg'
+
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -57,9 +57,7 @@ const Banner = () => {
         <SwiperSlide>
           <img src={pic6} />
         </SwiperSlide>
-        <SwiperSlide>
-          <img src={pic7} />
-        </SwiperSlide>
+        
       </Swiper>
      
         </div>

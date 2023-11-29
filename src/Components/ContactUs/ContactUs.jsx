@@ -6,9 +6,12 @@ import { RiWhatsappLine } from "react-icons/ri";
 
 const ContactUs = () => {
     return (
-       <div className="max-w-screen-2xl mt-12 lg:px-40 bg-emerald-200  p-10">
+       <div className="max-w-screen-2xl mt-12 lg:mx-40 bg-emerald-200  p-10">
+       
         <h2 className="text-center text-4xl font-mono font-semibold text-slate-600">Contact Us!</h2>
+        <div className="divider"></div>
          <div className="lg:flex justify-between mt-6">
+
             <div className="space-y-2">
                 <RiContactsFill className="mx-auto text-center text-2xl text-red-500"></RiContactsFill>
                 <h2 className="uppercase text-xl text-center">By phone</h2>

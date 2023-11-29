@@ -18,7 +18,7 @@ const Testimonial = () => {
             .then(data => setReviews(data))
     }, [setReviews])
     return (
-        <section className="mt-10">
+        <section className="mt-10 px-6">
 
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper ">
 

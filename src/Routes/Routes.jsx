@@ -18,6 +18,9 @@ import DetailsSurvey from "../pages/DetailsSurvey/DetailsSurvey";
 import Payment from "../Dashboard/Payment/Payment";
 import PriceHistory from "../pages/PriceHistory/PriceHistory";
 import UserProfile from "../Dashboard/UserProfile/UserProfile";
+import AdminRoute from "./AdminRoute";
+import ContactUs from "../Components/ContactUs/ContactUs";
+import SurveyUpdate from "../pages/SurvayCreate/SurvayUpdate/SurveyUpdate";
 // import SurveyUpdate from "../pages/SurvayCreate/SurvayUpdate/SurveyUpdate";
 
 
@@ -70,8 +73,12 @@ export const router = createBrowserRouter([
         element: <SurveyCreate></SurveyCreate>
       },
       {
+        path: 'contact',
+        element: <ContactUs></ContactUs>
+      },
+      {
         path: 'allUsers',
-        element: <AllUsers></AllUsers>
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
       },
       {
         path: 'manageSurvey',
@@ -86,11 +93,11 @@ export const router = createBrowserRouter([
         path: 'priceHistory',
         element:<PriceHistory></PriceHistory>
       },
-      // {
-      //   path: 'update/:id',
-      //   element: <SurveyUpdate></SurveyUpdate>,
-      //   loader:({params})=>fetch(`http://localhost:5000/survey/${params.id}`)
-      // },
+      {
+        path: 'update/:id',
+        element: <SurveyUpdate></SurveyUpdate>,
+        loader:({params})=>fetch(`http://localhost:5000/survey/${params.id}`)
+      },
     ]
   }
 ]);

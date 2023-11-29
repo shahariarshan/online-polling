@@ -3,10 +3,11 @@
 const FAQs = () => {
     return (
         <div>
-            <div className="text-center mt-96 space-y-4">
+            <div className="text-center mt-40 px-4 space-y-4">
                 <h1 className="font-normal text-base">EVERYTHING YOU NEED TO KNOW</h1>
                 <h2 className="font-semibold font-serif text-5xl">Frequently Asked Questions</h2>
             </div>
+            <div className="divider"></div>
             <div className="lg:flex gap-5 justify-evenly ">
                 <div className="lg:w-[50%]">
                     <div className="collapse collapse-arrow mt-5 bg-base-200">
