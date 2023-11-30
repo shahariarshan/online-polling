@@ -114,7 +114,7 @@ const SurveyCreate = () => {
                                 <option value="Social and Demographic">Social and Demographic</option>
                             </select>
                         </div>
-                        {/* <div className="form-control w-full my-6">
+                        <div className="form-control w-full my-6">
                             <label className="label">
                                 <span className="label-text">Expire Date*:</span>
                             </label>
@@ -122,7 +122,7 @@ const SurveyCreate = () => {
                                 {...register("expireDate", { required: true })}
                                 placeholder="Type Survey Title here"
                                 className="input input-bordered w-full " />
-                        </div> */}
+                        </div>
 
 
                     </div>

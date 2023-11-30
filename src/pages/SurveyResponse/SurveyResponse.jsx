@@ -24,6 +24,7 @@ const SurveyResponse = () => {
                             <th>Voted</th>
                             <th>Like/Dislike</th>
                             <th>Added Time</th>
+                            <th>Expire Date</th>
                             
                         </tr>
                     </thead>
@@ -36,6 +37,7 @@ const SurveyResponse = () => {
                                 <td>{item.yesVoted}</td>
                                 <td>{item.liked}/{item.dislike}</td>
                                 <td>{item.timestamp}</td>
+                                <td>{item.date}</td>
                               
                                 
                                

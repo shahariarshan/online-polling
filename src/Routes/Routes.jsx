@@ -20,8 +20,10 @@ import PriceHistory from "../pages/PriceHistory/PriceHistory";
 import UserProfile from "../Dashboard/UserProfile/UserProfile";
 import AdminRoute from "./AdminRoute";
 import ContactUs from "../Components/ContactUs/ContactUs";
-import SurveyUpdate from "../pages/SurvayCreate/SurvayUpdate/SurveyUpdate";
-// import SurveyUpdate from "../pages/SurvayCreate/SurvayUpdate/SurveyUpdate";
+
+import UpdateItem from "../pages/SurvayCreate/SurvayUpdate/SurveyUpdate";
+import ErrorPage from "../ErrorPage/ErrorPage";
+
 
 
 
@@ -29,6 +31,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
@@ -95,7 +98,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'update/:id',
-        element: <SurveyUpdate></SurveyUpdate>,
+        element: <UpdateItem></UpdateItem>,
         loader:({params})=>fetch(`http://localhost:5000/survey/${params.id}`)
       },
     ]

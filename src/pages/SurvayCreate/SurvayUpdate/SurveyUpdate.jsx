@@ -1,51 +1,34 @@
-import Swal from "sweetalert2";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import { useForm } from "react-hook-form";
 import { useLoaderData } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import { RiSurveyFill } from "react-icons/ri";
 import useAuth from "../../../Hooks/useAuth";
 
 
-const SurveyUpdate = () => {
-    const { register, handleSubmit } = useForm()
-    const {user} =useAuth()
-    const axiosSecure =useAxiosSecure()
-    const {_id} =useLoaderData()
-    const onSubmit = async(data) => {
-        // console.log(data)
 
-      
-           
-            const surveyItem = {
-                title: data.title,
-                category: data.category,
-                options: data.options,
-                description: data.description,
-                expireDate: data.expireDate,
-                
-            }
-             
-            const survey = await axiosSecure.patch(`/survey/${_id}`,surveyItem);
-            console.log(survey.data)
-            if(survey.data.modifiedCount > 0){
-                // show success popup
-               
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: `${data.name} is Updated from the menu.`,
-                    showConfirmButton: false,
-                    timer: 1500
-                  });
-            }
-        }
-        
-       
-    
+const UpdateItem = () => {
+    const { user } = useAuth()
+    const updateItems = useLoaderData();
+    const { title, category, _id, expireDate, options, description } =updateItems
+    console.log(updateItems);
+
+    const { register, handleSubmit } = useForm();
+
+    const onSubmit = async (data) => {
+        console.log(data)
+
+
+
+
+
+
+
+    };
+
+
     return (
-        <div className="lg:px-12 ">
-            
-            <div className="mt-7">
+        <div>
+
+            <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <div className="form-control w-full my-6">
@@ -101,17 +84,17 @@ const SurveyUpdate = () => {
 
 
 
-                   
+
 
                     <div className="form-control w-full my-6">
                         <label className="label">
                             <span className="label-text">Options*:</span>
                         </label>
                         <select {...register("options", { required: true })} className="select select-primary w-full ">
-                           
+
                             <option value="yes">yes</option>
                             <option value="no">no</option>
-                            
+
                         </select>
                     </div>
 
@@ -129,7 +112,7 @@ const SurveyUpdate = () => {
                         placeholder="Survey Details" className="textarea textarea-bordered textarea-lg w-full" ></textarea>
 
                     <button className="btn  btn-warning lg:flex justify-center">
-                       Update Survey <RiSurveyFill />
+                        Add Survey <RiSurveyFill />
                     </button>
                 </form>
             </div>
@@ -137,4 +120,4 @@ const SurveyUpdate = () => {
     );
 };
 
-export default SurveyUpdate;
+export default UpdateItem;
