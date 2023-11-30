@@ -89,7 +89,7 @@ const DashBoard = () => {
             <div className="flex-1 ml-5">
                 <NavBar></NavBar>
                 <Outlet className=' min-h-screen bg-emerald-300'></Outlet>
-                <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://ibb.co/bRNnzqB)' }}>
+                {/* <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.imgur.com/M97cekj.jpg)' }}>
                     <div className="hero-overlay bg-opacity-60"></div>
                     <div className="hero-content text-center text-neutral-content">
                         <div className="max-w-md">
@@ -98,7 +98,7 @@ const DashBoard = () => {
                             
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <Footer></Footer>
             </div>
         </div>

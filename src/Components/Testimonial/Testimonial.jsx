@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// import { Rating } from '@smastrom/react-rating'
-import { VscPreview } from 'react-icons/vsc';
 import '@smastrom/react-rating/style.css'
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -13,7 +11,7 @@ const Testimonial = () => {
     const [reviews, setReviews] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://online-polling-server.vercel.app/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [setReviews])
@@ -25,21 +23,26 @@ const Testimonial = () => {
                 {
                     reviews.map(review => <SwiperSlide key={review._id}>
                         <div className="lg:mx-40 mt-10 space-y-4">
-                        <img src={review.image} />
+                           
+                           
+
+
                                 
-                            
-                            <VscPreview className="mx-auto text-6xl" ></VscPreview>
-                            
-                                  
-                            <Rating
-                                className="mx-auto"
-                                style={{ maxWidth: 180 }}
-                                value={review.rating}
-                                readOnly
-                            />
+                                <div className="mx-auto flex justify-center avatar">
+                                <div className="w-24 rounded-full">
+                                    <img src={review.image} />
+                                </div>
+                                </div>
+
+                                <Rating
+                                    className="mx-auto"
+                                    style={{ maxWidth: 180 }}
+                                    value={review.rating}
+                                    readOnly
+                                />
                                 <h2 className="text-2xl text-[#CD9003]  text-center">{review.name}</h2>
-                            <p className="">{review.details}</p>
-                        </div>
+                                <p className="">{review.details}</p>
+                            </div>
                     </SwiperSlide>)
                 }
 

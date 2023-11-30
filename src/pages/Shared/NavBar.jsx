@@ -19,19 +19,17 @@ const NavBar = () => {
         <>
             <li className="mr-3"><NavLink to='/'>Home</NavLink></li>
             <li className="mr-3"><NavLink to='/survey'>Survey</NavLink></li>
-            <li className="mr-3"><NavLink to='/dashboard'>Dashboard</NavLink></li>
-            <li className="mr-3"><NavLink to='/payment' >Pro User</NavLink></li>
+
             {
                 user ? <>
-                    {/* <span></span> */}
+                   
+                   
+                    <li className="mr-3"><NavLink to='/dashboard'>Dashboard</NavLink></li>
+                    <li className="mr-3"><NavLink to='/payment' >Pro User</NavLink></li>
                     <details className="dropdown items-end">
                         <summary className="m-1 btn">user</summary>
                         <ul className="p-2 shadow menu dropdown-content bg-emerald-400 overflow-hidden rounded-box w-52">
-
-
                             <img className="w-24  rounded-full  " src={user?.photo} />
-
-
                             <li>Name: {user?.displayName}</li>
                             <li>Email: {user?.email}</li>
 

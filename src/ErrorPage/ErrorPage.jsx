@@ -7,7 +7,7 @@ const ErrorPage = () => {
     const {user}= useAuth()
     return (
         <div>
-              <img className="h-[700px] w-[700px] mx-auto" src="https://i.ibb.co/zsFyxgD/4660894-2456051.jpg" alt="" />
+              <img className="h-[700px] w-[700px] mx-auto rounded-xl" src="https://i.imgur.com/W3lM7CY.jpg" alt="" />
              <NavLink to='/'>{user.displayName}Home</NavLink>
         </div>
     );

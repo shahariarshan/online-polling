@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 import toast, { Toaster } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+
 import useSurvey from "../../../Hooks/useSurvey";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
@@ -19,7 +19,7 @@ const CheckOutForm = () => {
   const stripe = useStripe()
   const elements = useElements()
   const axiosSecure = useAxiosSecure()
-  const navigate =useNavigate()
+  
   const [survey] = useSurvey()
   const { user } = useAuth()
   
@@ -91,7 +91,7 @@ const CheckOutForm = () => {
         if(res.data?.paymentResult.insertedId){
           toast(`Hello  ${user?.displayName}   Sir! Your Payment is SuccessFul,You Are Now Pro User`)
         }
-        navigate('/dashboard/priceHistory')
+        
       }
     }
 
