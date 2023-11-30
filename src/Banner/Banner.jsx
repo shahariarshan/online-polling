@@ -20,6 +20,7 @@ import { EffectCoverflow, Pagination } from 'swiper/modules';
 const Banner = () => {
     return (
         <div>
+          <p className="text-center text-5xl mt-5 ">Welcome to  <span className="text-5xl text-blue-300 font-serif">Polling and Survey Platform</span></p>
           <div >
             <Swiper
             

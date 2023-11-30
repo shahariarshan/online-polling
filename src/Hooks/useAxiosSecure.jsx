@@ -8,7 +8,7 @@ import useAuth from '../Hooks/useAuth'
 
 
 //  const axiosSecure =axios.create({
-//     baseURL:'https://online-polling-server.vercel.app'
+//     baseURL:'http://localhost:5000'
 // }) 
 // const useAxiosSecure = () => {
 //     const navigate = useNavigate();
@@ -18,7 +18,7 @@ import useAuth from '../Hooks/useAuth'
 
 
 const axiosSecure =axios.create({
-    baseURL:'https://online-polling-server.vercel.app'
+    baseURL:'http://localhost:5000'
 })
 const useAxiosSecure = () => {
     const navigate =useNavigate()

@@ -5,6 +5,7 @@ import { MdOutlineDeleteSweep } from "react-icons/md";
 import Swal from "sweetalert2";
 import { RiAdminLine } from "react-icons/ri";
 import { SiSurveymonkey } from "react-icons/si";
+import { Helmet } from "react-helmet-async";
 const AllUsers = () => {
     const axiosSecure = useAxiosSecure()
     const { data: users = [], refetch } = useQuery({
@@ -84,6 +85,11 @@ const AllUsers = () => {
 
     return (
         <div>
+               <Helmet>
+                <title>
+                    Pooling & Survey | All User
+                </title>
+            </Helmet>
             <h2 className="text-center mt-5 text-5xl font-serif text-amber-300">All Users!</h2>
             <h2 className="text-center text-2xl mt-10">Total Users:{users.length}</h2>
             <div>

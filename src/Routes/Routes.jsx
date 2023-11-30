@@ -51,7 +51,7 @@ export const router = createBrowserRouter([
       {
         path: 'surveyDetails/:id',
         element: <PrivateRoute><DetailsSurvey></DetailsSurvey></PrivateRoute>,
-        loader:({params})=>fetch(`https://online-polling-server.vercel.app/survey/${params.id}`)
+        loader:({params})=>fetch(`http://localhost:5000/survey/${params.id}`)
       },
      
 
@@ -101,7 +101,7 @@ export const router = createBrowserRouter([
       {
         path: 'update/:id',
         element:<SurveyUpdate></SurveyUpdate>,
-        loader:({params})=>fetch(`https://online-polling-server.vercel.app/survey/${params.id}`)
+        loader:({params})=>fetch(`http://localhost:5000/survey/${params.id}`)
         
       },
     ]

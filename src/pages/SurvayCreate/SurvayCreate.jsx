@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from '../../Hooks/useAxiosSecure'
 import useAuth from "../../Hooks/useAuth";
 import moment from "moment/moment";
+import { Helmet } from "react-helmet-async";
 
 
 const SurveyCreate = () => {
@@ -72,6 +73,11 @@ const SurveyCreate = () => {
    
     return (
         <div>
+               <Helmet>
+                <title>
+                    Pooling & Survey | Survey Create
+                </title>
+            </Helmet>
             <h2 className="text-center mt-5 text-5xl font-serif text-amber-300">Create A Survey!</h2>
             <div className="mt-7">
                 <form onSubmit={handleSubmit(onSubmit)}>

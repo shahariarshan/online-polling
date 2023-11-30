@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import useAuth from "../../Hooks/useAuth";
 import useSurvey from "../../Hooks/useSurvey";
 
@@ -9,6 +10,11 @@ const SurveyResponse = () => {
 
     return (
         <div>
+               <Helmet>
+                <title>
+                    Pooling & Survey | Survey Response
+                </title>
+            </Helmet>
              <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}

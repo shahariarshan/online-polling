@@ -4,6 +4,7 @@ import { FaEdit } from "react-icons/fa";
 import { MdOutlineDeleteSweep } from "react-icons/md";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -49,6 +50,11 @@ const ManageSurvay = () => {
     }
     return (
         <div>
+               <Helmet>
+                <title>
+                    Pooling & Survey | Manage survey
+                </title>
+            </Helmet>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
