@@ -25,7 +25,7 @@ const {id}=updateItems
             options:updateItems.options,
             description:updateItems.description
         }
-        const axios = await axiosSecure.patch(`http://localhost:5000/survey/${id}`,updateItemsAll)  
+        const axios = await axiosSecure.patch(`https://online-polling-server.vercel.app/survey/${id}`,updateItemsAll)  
         console.log(axios.data);
     };
 
